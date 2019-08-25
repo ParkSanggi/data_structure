@@ -35,17 +35,27 @@ class SingleLinkedList:
             self.head = self.head.next
             return
 
-        cur = self.head.next
-        prev = self.head
+        cur = self.head
 
-        while cur:
-            if cur.data == target:
-                prev.next = cur.next
+        while cur.next:
+            if cur.next.data == target:
+                cur.next = cur.next.next
                 return
             cur = cur.next
-            prev = prev.next
 
         return None
+
+        # cur = self.head.next
+        # prev = self.head
+        #
+        # while cur:
+        #     if cur.data == target:
+        #         prev.next = cur.next
+        #         return
+        #     cur = cur.next
+        #     prev = prev.next
+        #
+        # return None
 
 
 if __name__ == '__main__':
@@ -65,11 +75,11 @@ if __name__ == '__main__':
     print(s_li.search(5).data)
     print(s_li.search(6))
 
-    s_li.delete(5)
-    s_li.delete(4)
-    s_li.delete(3)
-    s_li.delete(2)
     s_li.delete(1)
+    s_li.delete(2)
+    s_li.delete(3)
+    s_li.delete(4)
+    s_li.delete(5)
 
     print(s_li.empty())
 
